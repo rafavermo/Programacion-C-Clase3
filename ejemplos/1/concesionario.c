@@ -44,7 +44,7 @@ void curso_concesionario_attr_unset_coche(struct concesionario *con,
 	int i = 0;
 	struct coche *c, *tmp;
 
-	if (pos > 0 && pos > con->num_coches)
+	if (pos < 0 || pos > con->num_coches)
 		return;
 
 	list_for_each_entry_safe(c, tmp, &con->garaje, head) {
@@ -95,7 +95,7 @@ void curso_concesionario_attr_set_str(struct concesionario *con,
 	curso_concesionario_set_data(con, attr, data);
 }
 
-void curso_concesionario_attr_set_coche(struct concesionario *con,
+void curso_concesionar:wqattr_set_coche(struct concesionario *con,
 					  uint16_t attr, struct coche *data)
 {
 	curso_concesionario_set_data(con, attr, data);
